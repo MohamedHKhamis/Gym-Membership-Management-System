@@ -38,4 +38,15 @@ public class TrainerDatabase {
         return records;
     }
 
+    public boolean contains(String key) {
+        for (Trainer trainer : records) {
+            String[] tmp = trainer.toString().split(",");
+            if (tmp[0].equals(key)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 }
