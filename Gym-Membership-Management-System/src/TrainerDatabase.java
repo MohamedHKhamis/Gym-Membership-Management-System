@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +21,7 @@ public class TrainerDatabase {
         return new Trainer(trainerId,name,email,specialty,phoneNumber);
     }
     public void readFromFile() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("Trainers.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 Trainer trainer = createRecordFrom(line);
@@ -48,5 +45,45 @@ public class TrainerDatabase {
         return false;
     }
 
+    public Trainer getRecord(String key) {
+        if (!contains(key)) {
+            return null;
+        }
+        for (Trainer trainer : records) {
+            String[] trTmp = trainer.toString().split(",");
+            String trainerId = trTmp[0];
+            if (trainerId.equals(key)) {
+                return trainer;
+            }
+        }
+        return null;
+    }
 
+    public void insertRecord(Trainer record) {
+        if (contains(record.toString().split(",")[0])) {
+            System.out.println("record already exists");
+        }else {
+            records.add(record);
+        }
+    }
+
+    public void deleteRecord(String key) {
+        for (Trainer trainer : records) {
+            String[] trTmp = trainer.toString().split(",");
+            String trainerId = trTmp[0];
+            if (trainerId.equals(key)) {
+                records.remove(trainer);
+            }
+        }
+    }
+
+    public void saveToFile() {
+        try (FileWriter writer = new FileWriter(fileName)) {
+            for (Trainer trainer : records) {
+                writer.write(trainer.toString() + "\n");
+            }
+        } catch (IOException e) {
+            System.out.println("error");
+        }
+    }
 }
