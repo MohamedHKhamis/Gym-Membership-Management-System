@@ -12,7 +12,7 @@ public class ClassDatabase {
     private String filename;
     public ClassDatabase(String filename) {
         this.filename = filename;
-        records = new ArrayList<Class>();
+        records = new ArrayList<>();
     }
     public void readFromFile() {
         try {
@@ -20,7 +20,6 @@ public class ClassDatabase {
             Scanner myReader = new Scanner(file);
             while (myReader.hasNextLine()) {
                 String line = myReader.nextLine();
-                System.out.println(line);
                 records.add(createRecordFrom(line));
             }
             myReader.close();

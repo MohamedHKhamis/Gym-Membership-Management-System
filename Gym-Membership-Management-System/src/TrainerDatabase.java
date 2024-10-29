@@ -37,8 +37,7 @@ public class TrainerDatabase {
 
     public boolean contains(String key) {
         for (Trainer trainer : records) {
-            String[] tmp = trainer.toString().split(",");
-            if (tmp[0].equals(key)) {
+            if (trainer.getSearchKey().equals(key)) {
                 return true;
             }
         }
@@ -50,9 +49,7 @@ public class TrainerDatabase {
             return null;
         }
         for (Trainer trainer : records) {
-            String[] trTmp = trainer.toString().split(",");
-            String trainerId = trTmp[0];
-            if (trainerId.equals(key)) {
+            if (trainer.getSearchKey().equals(key)) {
                 return trainer;
             }
         }
@@ -60,21 +57,15 @@ public class TrainerDatabase {
     }
 
     public void insertRecord(Trainer record) {
-        if (contains(record.toString().split(",")[0])) {
-            System.out.println("record already exists");
-        }else {
-            records.add(record);
+        if (contains(record.getSearchKey())) {
+            return;
         }
+        records.add(record);
+
     }
 
     public void deleteRecord(String key) {
-        for (Trainer trainer : records) {
-            String[] trTmp = trainer.toString().split(",");
-            String trainerId = trTmp[0];
-            if (trainerId.equals(key)) {
-                records.remove(trainer);
-            }
-        }
+        records.removeIf(trainer -> trainer.getSearchKey().equals(key));
     }
 
     public void saveToFile() {
@@ -83,7 +74,7 @@ public class TrainerDatabase {
                 writer.write(trainer.toString() + "\n");
             }
         } catch (IOException e) {
-            System.out.println("error");
+            e.printStackTrace();
         }
     }
 }

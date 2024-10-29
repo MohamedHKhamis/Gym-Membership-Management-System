@@ -7,11 +7,10 @@ public class AdminRole {
     }
     public void addTrainer (String trainerId, String name, String email, String specialty, String phoneNumber){
         if(database.contains(trainerId)){
-            System.out.println("Trainer already exists");
-        }else{
-            Trainer trainer = new Trainer(trainerId, name, email, specialty, phoneNumber);
-            database.insertRecord(trainer);
+            return;
         }
+        Trainer trainer = new Trainer(trainerId, name, email, specialty, phoneNumber);
+        database.insertRecord(trainer);
     }
     public List<Trainer> getListOfTrainers(){
         return database.returnAllRecords();
@@ -21,7 +20,6 @@ public class AdminRole {
     }
     public void logout(){
         database.saveToFile();
-        System.out.println("Logged out successfully");
     }
 
 }

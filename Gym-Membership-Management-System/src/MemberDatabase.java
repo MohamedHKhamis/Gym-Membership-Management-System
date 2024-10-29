@@ -41,8 +41,7 @@ public class MemberDatabase {
 
     public boolean contains(String key) {
         for (Member member : records) {
-            String[] tmp = member.toString().split(",");
-            if (tmp[0].equals(key)) {
+            if (member.getSearchKey().equals(key)) {
                 return true;
             }
         }
@@ -54,9 +53,7 @@ public class MemberDatabase {
             return null;
         }
         for (Member member : records) {
-            String[] trTmp = member.toString().split(",");
-            String trainerId = trTmp[0];
-            if (trainerId.equals(key)) {
+            if (member.getSearchKey().equals(key)) {
                 return member;
             }
         }
@@ -64,21 +61,15 @@ public class MemberDatabase {
     }
 
     public void insertRecord(Member record) {
-        if (contains(record.toString().split(",")[0])) {
-            System.out.println("record already exists");
-        }else {
-            records.add(record);
+        if (contains(record.getSearchKey())) {
+            //System.out.println("record already exists");
+            return;
         }
+        records.add(record);
     }
 
     public void deleteRecord(String key) {
-        for (Member member : records) {
-            String[] trTmp = member.toString().split(",");
-            String trainerId = trTmp[0];
-            if (trainerId.equals(key)) {
-                records.remove(member);
-            }
-        }
+        records.removeIf(member -> member.getSearchKey().equals(key));
     }
 
     public void saveToFile() {
@@ -87,7 +78,7 @@ public class MemberDatabase {
                 writer.write(member.toString() + "\n");
             }
         } catch (IOException e) {
-            System.out.println("error");
+            e.printStackTrace();
         }
     }
 

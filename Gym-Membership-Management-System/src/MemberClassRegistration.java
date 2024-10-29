@@ -26,6 +26,11 @@ public class MemberClassRegistration {
     public String getSearchKey() {
         return memberID+classID;
     }
+    public void setRegistrationStatus(String status) {
+        if (status.equalsIgnoreCase("active") || status.equalsIgnoreCase("cancelled")) {
+            this.status = status.toLowerCase();
+        }
+    }
     public String lineRepresentation() {
         return memberID+","+classID+","+registrationDate.toString()+","+status+"\n";
     }

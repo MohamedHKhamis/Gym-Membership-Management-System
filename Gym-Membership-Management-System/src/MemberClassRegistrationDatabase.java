@@ -21,7 +21,6 @@ public class MemberClassRegistrationDatabase {
             Scanner myReader = new Scanner(file);
             while (myReader.hasNextLine()) {
                 String line = myReader.nextLine();
-                System.out.println(line);
                 records.add(createRecordFrom(line));
             }
             myReader.close();
