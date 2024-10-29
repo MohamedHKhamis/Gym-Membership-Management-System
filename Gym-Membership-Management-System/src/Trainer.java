@@ -1,4 +1,4 @@
-public class Trainer {
+public class Trainer implements UseMethods {
     private String trainerId;
     private String name;
     private String email;

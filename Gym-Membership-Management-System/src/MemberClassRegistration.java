@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class MemberClassRegistration {
+public class MemberClassRegistration implements UseMethods {
     private String memberID;
     private String classID;
     private String status;

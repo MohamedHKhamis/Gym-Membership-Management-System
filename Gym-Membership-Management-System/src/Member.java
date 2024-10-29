@@ -1,4 +1,4 @@
-public class Member     {
+public class Member implements UseMethods  {
         private String memberID;
         private String name;
         private String email;

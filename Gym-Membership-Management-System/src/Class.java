@@ -1,4 +1,4 @@
-public class Class {
+public class Class implements UseMethods {
     private String classID;
     private String className;
     private String trainerID;
