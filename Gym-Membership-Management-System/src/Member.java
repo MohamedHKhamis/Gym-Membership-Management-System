@@ -17,7 +17,7 @@ public class Member implements UseMethods  {
 
 
         public String lineRepresentation (){
-            return String.join(", ", memberID, name, email, membershipType, phoneNumber,status);
+            return String.join(",", memberID, name, email, membershipType, phoneNumber,status)+"\n";
         }
 
         public String getSearchKey(){

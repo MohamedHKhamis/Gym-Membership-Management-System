@@ -10,7 +10,7 @@ public class TrainerRole {
         registrationDatabase = new MemberClassRegistrationDatabase("Registration.txt");
         classDatabase = new ClassDatabase("Classes.txt");
         memberDatabase = new MemberDatabase("Members.txt");
-        registrationDatabase.readFromFile();
+        //registrationDatabase.readFromFile();
         classDatabase.readFromFile();
         memberDatabase.readFromFile();
     }
@@ -23,6 +23,8 @@ public class TrainerRole {
     }
     public void addClass (String classID, String className, String trainerID, int duration, int maxParticipants){
         Class newClass = new Class(classID, className, trainerID, duration, maxParticipants);
+        if (classDatabase.contains(classID))
+            return;
         classDatabase.insertRecord(newClass);
     }
     public List<Class> getListOfClasses(){
@@ -45,8 +47,6 @@ public class TrainerRole {
         Class c = classDatabase.getRecord(classID);
         if(c == null)
             return false;
-        if(c.getAvailableSeats()==0)
-            return false;
         if (memberDatabase.getRecord(memberID) == null)
             return false;
         MemberClassRegistration registration = registrationDatabase.getRecord(memberID+classID);
@@ -63,7 +63,7 @@ public class TrainerRole {
     public List<MemberClassRegistration> getListOfRegistrations(){
         return registrationDatabase.returnAllRecords();
     }
-    public void logOut(){
+    public void logout(){
         registrationDatabase.saveToFile();
         classDatabase.saveToFile();
         memberDatabase.saveToFile();

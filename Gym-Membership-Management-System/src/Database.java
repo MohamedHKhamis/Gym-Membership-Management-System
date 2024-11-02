@@ -34,10 +34,7 @@ abstract class Database<T extends UseMethods> {
         return records;
     }
     public boolean contains(String key){
-        Optional<T> result = records.stream()
-                .filter(record -> record.getSearchKey().equals(key))
-                .findFirst();
-
+        Optional<T> result = records.stream().filter(record -> record.getSearchKey().equals(key)).findFirst();
         return result.isPresent();
     }
     public T getRecord(String key){

@@ -24,7 +24,7 @@ public class MemberClassRegistration implements UseMethods {
         return registrationDate;
     }
     public String getSearchKey() {
-        return memberID+classID;
+        return memberID+"+"+classID;
     }
     public void setRegistrationStatus(String status) {
         if (status.equalsIgnoreCase("active") || status.equalsIgnoreCase("cancelled")) {

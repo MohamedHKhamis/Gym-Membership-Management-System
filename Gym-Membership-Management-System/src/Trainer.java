@@ -14,7 +14,7 @@ public class Trainer implements UseMethods {
     }
 
     public String lineRepresentation (){
-        return String.join(", ", trainerId, name, email, specialty, phoneNumber);
+        return String.join(",", trainerId, name, email, specialty, phoneNumber);
     }
 
     public String getSearchKey(){
