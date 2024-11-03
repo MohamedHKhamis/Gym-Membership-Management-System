@@ -10,7 +10,7 @@ public class TrainerRole {
         registrationDatabase = new MemberClassRegistrationDatabase("Registration.txt");
         classDatabase = new ClassDatabase("Classes.txt");
         memberDatabase = new MemberDatabase("Members.txt");
-        //registrationDatabase.readFromFile();
+        registrationDatabase.readFromFile();
         classDatabase.readFromFile();
         memberDatabase.readFromFile();
     }
@@ -38,6 +38,9 @@ public class TrainerRole {
             return false;
         if (memberDatabase.getRecord(memberID) == null)
             return false;
+        if (registrationDatabase.contains(memberID+"+"+classID)){
+            registrationDatabase.deleteRecord(memberID+"+"+classID);
+        }
         MemberClassRegistration registration = new MemberClassRegistration(memberID, classID, "active",registrationDate);
         registrationDatabase.insertRecord(registration);
         c.setAvailableSeats(c.getAvailableSeats() - 1);
@@ -49,7 +52,7 @@ public class TrainerRole {
             return false;
         if (memberDatabase.getRecord(memberID) == null)
             return false;
-        MemberClassRegistration registration = registrationDatabase.getRecord(memberID+classID);
+        MemberClassRegistration registration = registrationDatabase.getRecord(memberID+"+"+classID);
         if(registration == null)
             return false;
         LocalDate registrationDate = registration.getRegistrationDate();

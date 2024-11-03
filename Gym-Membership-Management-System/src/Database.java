@@ -25,8 +25,11 @@ abstract class Database<T extends UseMethods> {
             }
             myReader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("File not found.");
-            e.printStackTrace();
+            try (FileWriter writer = new FileWriter(filename)) {
+
+            } catch (IOException n) {
+                n.printStackTrace();
+            }
         }
     }
     public abstract T createRecordFrom(String line);

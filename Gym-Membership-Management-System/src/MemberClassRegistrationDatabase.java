@@ -16,6 +16,6 @@ public class MemberClassRegistrationDatabase extends Database <MemberClassRegist
     }
     public MemberClassRegistration createRecordFrom(String line){
         String[] fields = line.split(",");
-        return (new MemberClassRegistration(fields[0], fields[1], fields[3], LocalDate.parse(fields[4])));
+        return (new MemberClassRegistration(fields[0], fields[1], fields[3], LocalDate.parse(fields[2])));
     }
 }
