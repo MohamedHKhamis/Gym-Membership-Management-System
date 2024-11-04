@@ -1,21 +1,22 @@
-package Frontend;// Packages to import
-import javax.swing.JFrame;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
+package Frontend;
+
+import Backend.ClassDatabase;
+import Backend.Class;
+
+import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
-import Backend.*;
 
-public class MembersTable extends JFrame {
+public class ClassesTable extends JFrame{
     JTable t;
-    public MembersTable(MemberDatabase database)
+    public ClassesTable(ClassDatabase database)
     {
         setTitle("View members");
         String[][] data = new String[database.returnAllRecords().size()][];
         int i = 0;
-        for(Member m : database.returnAllRecords())
+        for(Class m : database.returnAllRecords())
             data[i++] = m.lineRepresentation().split(",");
-        String[] columnNames = { "Id","Name", "Email", "Membership Type", "Phone Number", "Status" };
+        String[] columnNames = { "Class Id","Class Name", "Trainer Id", "Duration", "Max Participants"};
         t = new JTable(data, columnNames);
         t.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
             @Override
@@ -46,9 +47,9 @@ public class MembersTable extends JFrame {
 
     public static void main(String[] args)
     {
-        MemberDatabase database = new MemberDatabase("src/Data/Members.txt");
+        ClassDatabase database = new ClassDatabase("src/Data/Classes.txt");
         database.readFromFile();
-        new MembersTable(database);
+        new ClassesTable(database);
 
     }
 }
