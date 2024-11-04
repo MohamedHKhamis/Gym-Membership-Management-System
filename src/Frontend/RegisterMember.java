@@ -8,6 +8,7 @@ import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 
 import java.awt.*;
+import java.util.Calendar;
 import java.util.Properties;
 
 public class RegisterMember extends JFrame {
@@ -15,18 +16,29 @@ public class RegisterMember extends JFrame {
     private JTextField memberIdField;
     private JTextField classIdField;
     private JButton registerButton;
+    private JPanel mainWindow;
     private JDatePickerImpl datePicker;
-    private JDatePicker j;
 
 
     public RegisterMember() {
-        // TODO: place custom component creation code here
-        // Set up the date picker
         setVisible(true);
         setSize(new Dimension(600, 500));
         setContentPane(Entry);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+    private void createUIComponents() {
+        UtilDateModel model = new UtilDateModel();
+        Calendar today = Calendar.getInstance();
+        model.setDate(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH));
+        model.setSelected(true);;
+        Properties p = new Properties();
+        p.put("text.today", "Today");
+        p.put("text.month", "Month");
+        p.put("text.year", "Year");
+        JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
+        datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
+    }
+
     public static void main(String[] args) {
         JFrame frame = new RegisterMember();
     }
