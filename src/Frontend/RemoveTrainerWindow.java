@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static Frontend.AdminRoleWindow.admin;
+
 public class RemoveTrainerWindow extends JFrame {
     private JPanel Remove;
     private JTextField textField1;
@@ -28,7 +30,9 @@ public class RemoveTrainerWindow extends JFrame {
         removeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                String trainerId = textField1.getText();
+            admin.removeTrainer(trainerId);
+            dispose();
             }
         });
     }

@@ -26,6 +26,5 @@ public class AdminRole {
     public void logout(){
         database.saveToFile();
     }
-
 }
 

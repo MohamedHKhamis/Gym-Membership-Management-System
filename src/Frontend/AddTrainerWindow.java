@@ -66,7 +66,7 @@ public class AddTrainerWindow extends JFrame {
 
                 }else{
                     AdminRoleWindow.admin.addTrainer(id, name, email, speciality, phoneNumber);
-                    AddTrainerWindow.setVisible(false);
+                    dispose();
                 }
                 textId.setText("");
                 textName.setText("");
