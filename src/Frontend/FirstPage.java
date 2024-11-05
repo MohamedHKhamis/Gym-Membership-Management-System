@@ -5,18 +5,18 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FirstPage {
+public class FirstPage extends JFrame {
     private JPanel FirstPage;
     private JButton trainerRoleButton;
     private JButton adminRoleButton;
 
 
-    public FirstPage(JFrame frame) {
-        frame.setTitle("Gym System");
-        frame.setSize(500,500);
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setContentPane(FirstPage);
+    public FirstPage() {
+        setTitle("Gym System");
+        setSize(500,500);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setContentPane(FirstPage);
         trainerRoleButton.setBackground(new Color(36,36,36));
         trainerRoleButton.setForeground(Color.white);
         trainerRoleButton.setPreferredSize(new Dimension(200, 40));
