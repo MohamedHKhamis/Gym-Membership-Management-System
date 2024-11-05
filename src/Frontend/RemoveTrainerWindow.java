@@ -16,7 +16,7 @@ public class RemoveTrainerWindow extends JFrame {
     public RemoveTrainerWindow() {
         setTitle("Remove Trainer");
         setContentPane(Remove);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(100, 100, 550, 150);
         trainerId.setBackground(new Color(153, 255, 153));
         trainerId.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -31,8 +31,12 @@ public class RemoveTrainerWindow extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String trainerId = textField1.getText();
-            admin.removeTrainer(trainerId);
-            dispose();
+            if(admin.removeTrainer(trainerId)){
+                JOptionPane.showMessageDialog(null, "Trainer removed");
+                dispose();
+            }else {
+                JOptionPane.showMessageDialog(null, "Trainer not found");
+            }
             }
         });
     }
