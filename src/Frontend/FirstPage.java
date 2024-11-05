@@ -11,7 +11,6 @@ public class FirstPage {
     private JButton adminRoleButton;
 
 
-
     public FirstPage(JFrame frame) {
         frame.setTitle("Gym System");
         frame.setSize(500,500);

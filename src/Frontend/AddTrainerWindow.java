@@ -63,8 +63,10 @@ public class AddTrainerWindow extends JFrame {
                 if (!phoneNumber.matches("\\d{10,}")) {
                     JOptionPane.showMessageDialog(AddTrainerWindow, "Phone number must be at least 10 digits and contain only numbers");
                     return;
+
                 }else{
-                    adminRole.addTrainer(id, name, email, speciality, phoneNumber);
+                    AdminRoleWindow.admin.addTrainer(id, name, email, speciality, phoneNumber);
+                    AddTrainerWindow.setVisible(false);
                 }
                 textId.setText("");
                 textName.setText("");

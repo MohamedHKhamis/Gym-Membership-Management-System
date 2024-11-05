@@ -54,7 +54,6 @@ abstract class Database<T extends UseMethods> {
         records.add(record);
     }
     public void deleteRecord (String key){
-
         records.removeIf(trainer -> trainer.getSearchKey().equals(key));
     }
     public void saveToFile() {
