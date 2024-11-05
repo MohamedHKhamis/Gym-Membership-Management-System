@@ -16,9 +16,9 @@ public class LoginPage extends JFrame {
 
     public LoginPage() {
     setTitle("Login");
+    setVisible(true);
     setSize(700, 500);
     setContentPane(LoginPage);
-    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     username.setBackground(new Color(153, 255, 153));
     password.setBackground(new Color(153, 255, 153));
     username.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -41,18 +41,5 @@ public class LoginPage extends JFrame {
                 System.out.println("Password: " + password);
             }
         });
-    }
-
-    public static void main(String[] args) {
-        LoginPage loginPage = new LoginPage();
-        loginPage.setVisible(true);
-
-//        JOptionPane.showMessageDialog(
-//                null,
-//                "An error has occurred.",
-//                "Error",
-//                JOptionPane.ERROR_MESSAGE
-//        );
-
     }
 }
