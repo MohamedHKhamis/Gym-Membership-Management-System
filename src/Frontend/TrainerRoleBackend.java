@@ -88,12 +88,7 @@ public class TrainerRoleBackend {
 
             }
         });
-        trainerRoleMenu.getLogoutButton().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                logout();
-            }
-        });
+
     }
     private void addMember() {
         trainerRoleMenu.setVisible(false);
@@ -324,10 +319,12 @@ public class TrainerRoleBackend {
     });
     }
 
-    public void logout(){
-        trainerRole.logout();
-        trainerRoleMenu.dispose();
-    }
+   public JButton getLogout(){
+        return trainerRoleMenu.getLogoutButton();
+   }
+   public TrainerRole getTrainerRole(){
+        return trainerRole;
+   }
     public TrainerRoleMenu getFrame() {
         return trainerRoleMenu;
     }

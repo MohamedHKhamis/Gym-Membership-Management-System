@@ -30,10 +30,17 @@ public class Main {
                         if (userName.equals(LoginCredentials.ADMIN_USERNAME) && password.equals(LoginCredentials.ADMIN_PASSWORD)) {
                             login.dispose();
                             AdminRoleBackend adminRoleBackend= new AdminRoleBackend();
+                            adminRoleBackend.getLogoutButton().addActionListener(new ActionListener() {
+                                public void actionPerformed(ActionEvent e) {
+                                    adminRoleBackend.getAdminRole().logout();
+                                    adminRoleBackend.getFrame().dispose();
+                                    window.setVisible(true);
+                                }
+                            });
                             adminRoleBackend.getFrame().addWindowListener(new WindowAdapter() {
                                 @Override
                                 public void windowClosing(WindowEvent e) {
-                                    adminRoleBackend.logout();
+                                    adminRoleBackend.getAdminRole().logout();
                                     window.setVisible(true);
                                 }
                             });
@@ -67,7 +74,16 @@ public class Main {
                             trainerRoleBackend.getFrame().addWindowListener(new WindowAdapter() {
                                 @Override
                                 public void windowClosing(WindowEvent e) {
-                                    trainerRoleBackend.logout();
+                                    trainerRoleBackend.getTrainerRole().logout();
+                                    window.setVisible(true);
+                                }
+                            });
+                            trainerRoleBackend.getLogout().addActionListener(new ActionListener() {
+
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    trainerRoleBackend.getTrainerRole().logout();
+                                    trainerRoleBackend.getFrame().dispose();
                                     window.setVisible(true);
                                 }
                             });

@@ -1,10 +1,12 @@
 package Backend;
+import Inferance.FileNames;
+
 import java.util.List;
 
 public class AdminRole {
     private TrainerDatabase database;
     public AdminRole() {
-        database = new TrainerDatabase("src/Data/Trainers.txt");
+        database = new TrainerDatabase(FileNames.TRAINER_FILENAME);
         database.readFromFile();
     }
     public void addTrainer (String trainerId, String name, String email, String specialty, String phoneNumber){

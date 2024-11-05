@@ -15,7 +15,6 @@ public class AdminRoleWindow extends JFrame {
     private JButton button2;
     private JButton button3;
     private JButton button4;
-    public static AdminRole admin = new AdminRole();
 
 
     public AdminRoleWindow() {
@@ -48,33 +47,22 @@ public class AdminRoleWindow extends JFrame {
         button4.setOpaque(true);
         button4.setContentAreaFilled(true);
         button4.setBorderPainted(false);
-        button1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new AddTrainerWindow().setVisible(true);
-            }
-        });
-        button2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            new RemoveTrainerWindow().setVisible(true);
-            }
-        });
-        button3.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            new TrainersTable(admin.getListOfTrainers());
-            }
-        });
-        button4.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                admin.logout();
-                dispose();
-                FirstPage f = new FirstPage();
-                f.setVisible(true);
-            }
-        });
+
     }
 
+    public JButton getButton4() {
+        return button4;
+    }
+
+    public JButton getButton3() {
+        return button3;
+    }
+
+    public JButton getButton2() {
+        return button2;
+    }
+
+    public JButton getButton1() {
+        return button1;
+    }
 }

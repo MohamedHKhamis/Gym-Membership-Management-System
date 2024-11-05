@@ -1,4 +1,6 @@
 package Backend;
+import Inferance.FileNames;
+
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
@@ -8,9 +10,9 @@ public class TrainerRole {
     private ClassDatabase classDatabase;
     private MemberDatabase memberDatabase;
     public TrainerRole() {
-        registrationDatabase = new MemberClassRegistrationDatabase("src/Data/Registration.txt");
-        classDatabase = new ClassDatabase("src/Data/Classes.txt");
-        memberDatabase = new MemberDatabase("src/Data/Members.txt");
+        registrationDatabase = new MemberClassRegistrationDatabase(FileNames.REGISTRATION_FILENAME);
+        classDatabase = new ClassDatabase(FileNames.CLASS_FILENAME);
+        memberDatabase = new MemberDatabase(FileNames.MEMBER_FILENAME);
         registrationDatabase.readFromFile();
         classDatabase.readFromFile();
         memberDatabase.readFromFile();

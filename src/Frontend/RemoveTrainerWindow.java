@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static Frontend.AdminRoleWindow.admin;
 
 public class RemoveTrainerWindow extends JFrame {
     private JPanel Remove;
@@ -15,6 +14,7 @@ public class RemoveTrainerWindow extends JFrame {
 
     public RemoveTrainerWindow() {
         setTitle("Remove Trainer");
+        setVisible(true);
         setContentPane(Remove);
         setBounds(100, 100, 550, 150);
         trainerId.setBackground(new Color(153, 255, 153));
@@ -26,14 +26,13 @@ public class RemoveTrainerWindow extends JFrame {
         removeButton.setOpaque(true);
         removeButton.setContentAreaFilled(true);
         removeButton.setBorderPainted(false);
-        removeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String trainerId = textField1.getText();
-            admin.removeTrainer(trainerId);
-                JOptionPane.showMessageDialog(null, "Trainer removed");
-                dispose();
-            }
-        });
+    }
+
+    public JTextField getTextField1() {
+        return textField1;
+    }
+
+    public JButton getRemoveButton() {
+        return removeButton;
     }
 }
