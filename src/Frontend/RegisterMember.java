@@ -15,16 +15,15 @@ public class RegisterMember extends JFrame {
     private JPanel Entry;
     private JTextField memberIdField;
     private JTextField classIdField;
-    private JButton registerButton;
+    private  JButton registerButton;
     private JPanel mainWindow;
-    private JDatePickerImpl datePicker;
+    private  JDatePickerImpl datePicker;
 
 
     public RegisterMember() {
         setVisible(true);
         setSize(new Dimension(600, 500));
         setContentPane(Entry);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     private void createUIComponents() {
         UtilDateModel model = new UtilDateModel();
@@ -39,7 +38,19 @@ public class RegisterMember extends JFrame {
         datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
     }
 
-    public static void main(String[] args) {
-        JFrame frame = new RegisterMember();
+    public JTextField getMemberIdField() {
+        return memberIdField;
+    }
+
+    public JTextField getClassIdField() {
+        return classIdField;
+    }
+
+    public JButton getRegisterButton() {
+        return registerButton;
+    }
+
+    public JDatePickerImpl getDatePicker() {
+        return datePicker;
     }
 }

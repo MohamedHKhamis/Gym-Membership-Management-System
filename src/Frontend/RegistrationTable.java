@@ -6,17 +6,18 @@ import Backend.MemberClassRegistrationDatabase;
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
+import java.util.List;
 
 public class RegistrationTable extends JFrame {
     JTable t;
-    public RegistrationTable(MemberClassRegistrationDatabase database)
+    public RegistrationTable(List<MemberClassRegistration> database)
     {
         setTitle("View registratons");
-        String[][] data = new String[database.returnAllRecords().size()][];
+        String[][] data = new String[database.size()][];
         int i = 0;
-        for(MemberClassRegistration m : database.returnAllRecords())
+        for(MemberClassRegistration m : database)
             data[i++] = m.lineRepresentation().split(",");
-        String[] columnNames = { "Member Id","Class Id", "Registration Date" };
+        String[] columnNames = { "Member Id","Class Id", "Registration Date", "Status" };
         t = new JTable(data, columnNames);
         t.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
             @Override
@@ -42,14 +43,5 @@ public class RegistrationTable extends JFrame {
         add(sp);
         setSize(800, 400);
         setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-
-    public static void main(String[] args)
-    {
-        MemberClassRegistrationDatabase database = new MemberClassRegistrationDatabase("src/Data/Registration.txt");
-        database.readFromFile();
-        new RegistrationTable(database);
-
     }
 }
