@@ -15,7 +15,6 @@ public class FirstPage extends JFrame{
     public FirstPage() {
         setTitle("Gym System");
         setSize(500,500);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setContentPane(FirstPage);
         trainerRoleButton.setBackground(new Color(36,36,36));
         trainerRoleButton.setForeground(Color.white);
@@ -32,7 +31,9 @@ public class FirstPage extends JFrame{
         adminRoleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+            dispose();
+            LoginPage loginPage = new LoginPage();
+            loginPage.setVisible(true);
             }
         });
 

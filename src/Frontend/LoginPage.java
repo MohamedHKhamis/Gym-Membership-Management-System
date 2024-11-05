@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import Inferance.LoginCredentials;
 
 public class LoginPage extends JFrame {
 
@@ -13,7 +14,7 @@ public class LoginPage extends JFrame {
     private JPanel LoginPage;
     private JLabel username;
     private JLabel password;
-
+    private boolean succ=false;
     public LoginPage() {
     setTitle("Login");
     setSize(700, 500);
@@ -37,8 +38,13 @@ public class LoginPage extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String username = usernameField1.getText();
                 String password = new String(passwordField1.getPassword());
-                System.out.println("Username: " + username);
-                System.out.println("Password: " + password);
+                if (username.equals(LoginCredentials.ADMIN_USERNAME) && password.equals(LoginCredentials.ADMIN_PASSWORD)) {
+                   succ=true;
+                    dispose();
+                    new AdminRoleWindow().setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(LoginPage.this, "Wrong username or password");
+                }
             }
         });
     }
@@ -46,13 +52,5 @@ public class LoginPage extends JFrame {
     public static void main(String[] args) {
         LoginPage loginPage = new LoginPage();
         loginPage.setVisible(true);
-
-//        JOptionPane.showMessageDialog(
-//                null,
-//                "An error has occurred.",
-//                "Error",
-//                JOptionPane.ERROR_MESSAGE
-//        );
-
     }
 }

@@ -1,5 +1,7 @@
 package Frontend;
 
+import Backend.AdminRole;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,6 +13,8 @@ public class AdminRoleWindow extends JFrame {
     private JButton button2;
     private JButton button3;
     private JButton button4;
+    public static AdminRole admin = new AdminRole();
+
 
     public AdminRoleWindow() {
         setTitle("Admin Role");
@@ -45,13 +49,13 @@ public class AdminRoleWindow extends JFrame {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new AddTrainerWindow().setVisible(true);
             }
         });
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+            new RemoveTrainerWindow().setVisible(true);
             }
         });
         button3.addActionListener(new ActionListener() {
@@ -63,7 +67,9 @@ public class AdminRoleWindow extends JFrame {
         button4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                admin.logout();
+                dispose();
+                new FirstPage().setVisible(true);
             }
         });
     }
