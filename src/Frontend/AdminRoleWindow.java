@@ -19,10 +19,10 @@ public class AdminRoleWindow extends JFrame {
 
 
     public AdminRoleWindow() {
+        setVisible(true);
         setTitle("Admin Role");
         setContentPane(AdminRoleWindow);
         AdminRoleWindow.setBackground(new Color(215, 217, 223));
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(700,500);
         button1.setBackground(new Color(36,36,36));
         button1.setForeground(Color.white);
@@ -71,15 +71,10 @@ public class AdminRoleWindow extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 admin.logout();
                 dispose();
-                JFrame f = new JFrame();
-                new FirstPage(f);
+                FirstPage f = new FirstPage();
                 f.setVisible(true);
             }
         });
     }
 
-    public static void main(String[] args) {
-        AdminRoleWindow window = new AdminRoleWindow();
-        window.setVisible(true);
-    }
 }

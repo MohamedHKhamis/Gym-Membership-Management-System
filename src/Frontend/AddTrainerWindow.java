@@ -24,7 +24,6 @@ public class AddTrainerWindow extends JFrame {
         setTitle("Add Trainer");
         AdminRole adminRole = new AdminRole();
         setContentPane(AddTrainerWindow);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(700, 700);
         addButton.setBackground(new Color(36, 36, 36));
         addButton.setForeground(Color.white);

@@ -14,7 +14,7 @@ public class LoginPage extends JFrame {
     private JPanel LoginPage;
     private JLabel username;
     private JLabel password;
-    private boolean succ=false;
+
     public LoginPage() {
     setTitle("Login");
     setVisible(true);
@@ -32,25 +32,17 @@ public class LoginPage extends JFrame {
     loginButton.setOpaque(true);
     loginButton.setContentAreaFilled(true);
     loginButton.setBorderPainted(false);
-
-        loginButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String username = usernameField1.getText();
-                String password = new String(passwordField1.getPassword());
-                if (username.equals(LoginCredentials.ADMIN_USERNAME) && password.equals(LoginCredentials.ADMIN_PASSWORD)) {
-                   succ=true;
-                    dispose();
-                    new AdminRoleWindow().setVisible(true);
-                } else {
-                    JOptionPane.showMessageDialog(LoginPage.this, "Wrong username or password");
-                }
-            }
-        });
     }
 
-    public static void main(String[] args) {
-        LoginPage loginPage = new LoginPage();
-        loginPage.setVisible(true);
+    public JButton getLoginButton() {
+        return loginButton;
+    }
+
+    public JPasswordField getPasswordField1() {
+        return passwordField1;
+    }
+
+    public JTextField getUsernameField1() {
+        return usernameField1;
     }
 }

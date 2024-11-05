@@ -29,21 +29,14 @@ public class FirstPage extends JFrame {
         adminRoleButton.setOpaque(true);
         adminRoleButton.setContentAreaFilled(true);
         adminRoleButton.setBorderPainted(false);
-        adminRoleButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                new LoginPage();
-            }
-        });
 
-        trainerRoleButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
     }
 
+    public JButton getTrainerRoleButton() {
+        return trainerRoleButton;
+    }
 
+    public JButton getAdminRoleButton() {
+        return adminRoleButton;
+    }
 }
