@@ -1,6 +1,8 @@
 package Frontend;
 
 import Backend.AdminRole;
+import Backend.TrainerDatabase;
+import Inferance.FileNames;
 
 import javax.swing.*;
 import java.awt.*;
@@ -61,7 +63,7 @@ public class AdminRoleWindow extends JFrame {
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+            new TrainersTable(admin.getListOfTrainers());
             }
         });
         button4.addActionListener(new ActionListener() {

@@ -37,7 +37,6 @@ public class FirstPage extends JFrame{
             }
         });
 
-
         trainerRoleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
