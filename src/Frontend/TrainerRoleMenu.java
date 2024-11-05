@@ -18,11 +18,38 @@ public class TrainerRoleMenu extends JFrame {
         setVisible(true);
         setSize(new Dimension(600, 700));
         setContentPane(panel1);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
     }
-    public static void main(String[] args) {
-        new TrainerRoleMenu();
+
+    public JButton getAddMemberButton() {
+        return addMemberButton;
+    }
+
+    public JButton getLogoutButton() {
+        return logoutButton;
+    }
+
+    public JButton getViewRegistratonsButton() {
+        return viewRegistratonsButton;
+    }
+
+    public JButton getCancelRegistrationButton() {
+        return cancelRegistrationButton;
+    }
+
+    public JButton getRegisterMemberForClassButton() {
+        return registerMemberForClassButton;
+    }
+
+    public JButton getViewClassButton() {
+        return viewClassButton;
+    }
+
+    public JButton getAddClassButton() {
+        return addClassButton;
+    }
+
+    public JButton getViewMemberButton() {
+        return viewMemberButton;
     }
 }
 

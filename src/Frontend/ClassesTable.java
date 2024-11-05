@@ -6,15 +6,16 @@ import Backend.Class;
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
+import java.util.List;
 
 public class ClassesTable extends JFrame{
     JTable t;
-    public ClassesTable(ClassDatabase database)
+    public ClassesTable(List<Class> database)
     {
         setTitle("View members");
-        String[][] data = new String[database.returnAllRecords().size()][];
+        String[][] data = new String[database.size()][];
         int i = 0;
-        for(Class m : database.returnAllRecords())
+        for(Class m : database)
             data[i++] = m.lineRepresentation().split(",");
         String[] columnNames = { "Class Id","Class Name", "Trainer Id", "Duration", "Max Participants"};
         t = new JTable(data, columnNames);
@@ -42,14 +43,6 @@ public class ClassesTable extends JFrame{
         add(sp);
         setSize(800, 400);
         setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public static void main(String[] args)
-    {
-        ClassDatabase database = new ClassDatabase("src/Data/Classes.txt");
-        database.readFromFile();
-        new ClassesTable(database);
-
-    }
 }

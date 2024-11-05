@@ -16,9 +16,36 @@ public class AddClass extends JFrame{
         setVisible(true);
         setSize(new Dimension(600, 700));
         setContentPane(Entry);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     public static void main(String[] args) {
         new AddClass();
+    }
+
+    public JTextField getClassIdField() {
+        return classIdField;
+    }
+
+    public JTextField getClassNameField() {
+        return classNameField;
+    }
+
+    public JTextField getTrainerIdField() {
+        return trainerIdField;
+    }
+
+    public JTextField getEmailField() {
+        return emailField;
+    }
+
+    public JTextField getDurationField() {
+        return durationField;
+    }
+
+    public JTextField getMaxparticipantsFeild() {
+        return maxparticipantsFeild;
+    }
+
+    public JButton getAddButton() {
+        return addButton;
     }
 }

@@ -71,7 +71,9 @@ public class AdminRoleWindow extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 admin.logout();
                 dispose();
-                new FirstPage().setVisible(true);
+                JFrame f = new JFrame();
+                new FirstPage(f);
+                f.setVisible(true);
             }
         });
     }

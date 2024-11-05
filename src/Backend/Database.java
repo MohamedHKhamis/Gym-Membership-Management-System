@@ -1,5 +1,4 @@
 package Backend;
-import javax.swing.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -51,7 +50,6 @@ abstract class Database<T extends UseMethods> {
     }
     public void insertRecord (T record){
         if(contains(record.getSearchKey())){
-            JOptionPane.showMessageDialog(null,"Please enter a valid email address");
             return;}
         records.add(record);
     }
@@ -62,7 +60,6 @@ abstract class Database<T extends UseMethods> {
         try (FileWriter writer = new FileWriter(filename)) {
             for (T record : records) {
                 writer.write(record.lineRepresentation());
-                writer.write("\n");
             }
         } catch (IOException e) {
             e.printStackTrace();

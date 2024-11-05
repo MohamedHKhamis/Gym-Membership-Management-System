@@ -4,16 +4,18 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
+import java.util.List;
+
 import Backend.*;
 
 public class MembersTable extends JFrame {
     JTable t;
-    public MembersTable(MemberDatabase database)
+    public MembersTable(List<Member> database)
     {
         setTitle("View members");
-        String[][] data = new String[database.returnAllRecords().size()][];
+        String[][] data = new String[database.size()][];
         int i = 0;
-        for(Member m : database.returnAllRecords())
+        for(Member m : database)
             data[i++] = m.lineRepresentation().split(",");
         String[] columnNames = { "Id","Name", "Email", "Membership Type", "Phone Number", "Status" };
         t = new JTable(data, columnNames);
@@ -41,14 +43,5 @@ public class MembersTable extends JFrame {
         add(sp);
         setSize(800, 400);
         setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-
-    public static void main(String[] args)
-    {
-        MemberDatabase database = new MemberDatabase("src/Data/Members.txt");
-        database.readFromFile();
-        new MembersTable(database);
-
     }
 }

@@ -17,9 +17,33 @@ public class AddMember extends JFrame {
         setVisible(true);
         setSize(new Dimension(600, 700));
         setContentPane(Entry);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    public static void main(String[] args) {
-        new AddMember();
+
+    public JButton getAddButton() {
+        return addButton;
+    }
+
+    public JTextField getIdField() {
+        return IdField;
+    }
+
+    public JTextField getNameField() {
+        return nameField;
+    }
+
+    public JTextField getEmailField() {
+        return emailField;
+    }
+
+    public JTextField getMembershipField() {
+        return membershipField;
+    }
+
+    public JTextField getPhoneNumberField() {
+        return phoneNumberField;
+    }
+
+    public JTextField getStatusFeild() {
+        return statusFeild;
     }
 }
