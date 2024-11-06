@@ -159,7 +159,7 @@ public class TrainerRoleBackend {
             public void actionPerformed(ActionEvent e) {
                 String[] data = new String[5];
                 data[1] = addClass.getClassNameField().getText();
-                data[2] = addClass.getEmailField().getText();
+                data[2] = addClass.getTrainerIdField().getText();
                 data[0] = addClass.getClassIdField().getText();
                 data[3] = addClass.getDurationField().getText();
                 data[4] = addClass.getMaxparticipantsFeild().getText();
@@ -201,7 +201,6 @@ public class TrainerRoleBackend {
                 addClass.getDurationField().setText("");
                 addClass.getTrainerIdField().setText("");
                 addClass.getMaxparticipantsFeild().setText("");
-                addClass.getEmailField().setText("");
             }
         });
     }

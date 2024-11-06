@@ -1,2 +1,4 @@
 C001,Yoga,T001,60,0
-C002,Run,T001,20,28
+C002,Run,T001,20,25
+100,njnn,oiohrn,10,9
+C6773,Seif,sasas,60,47

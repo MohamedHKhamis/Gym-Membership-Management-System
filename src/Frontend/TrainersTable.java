@@ -47,9 +47,4 @@ public class TrainersTable extends JFrame {
         setVisible(true);
     }
 
-    public static void main(String[] args) {
-        TrainerDatabase database = new TrainerDatabase(FileNames.TRAINER_FILENAME);
-        database.readFromFile();
-        new TrainersTable(database.returnAllRecords());
-    }
 }

@@ -17,9 +17,6 @@ public class AddClass extends JFrame{
         setSize(new Dimension(600, 700));
         setContentPane(Entry);
     }
-    public static void main(String[] args) {
-        new AddClass();
-    }
 
     public JTextField getClassIdField() {
         return classIdField;
@@ -31,10 +28,6 @@ public class AddClass extends JFrame{
 
     public JTextField getTrainerIdField() {
         return trainerIdField;
-    }
-
-    public JTextField getEmailField() {
-        return emailField;
     }
 
     public JTextField getDurationField() {

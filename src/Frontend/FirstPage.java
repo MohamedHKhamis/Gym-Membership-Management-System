@@ -13,7 +13,7 @@ public class FirstPage extends JFrame {
 
     public FirstPage() {
         setTitle("Gym System");
-        setSize(500,500);
+        setSize(500,300);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setContentPane(FirstPage);
